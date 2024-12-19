@@ -1,4 +1,4 @@
-# alacritty pimp-module
+# gtk pimp-module
 
 _work in progress_
 
