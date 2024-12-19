@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../.json_schemas/module.json
+
+init:
+  - action: link
+    destination: ~/.themes/FlatColor
+    origin: FlatColor
+
+run:
+  - action: file
+    target: ~/.themes/FlatColor/gtk-2.0/gtkrc
+    template: gtk-2.0/gtkrc.j2
+  - action: file
+    target: ~/.themes/FlatColor/gtk-3.0/gtk.css
+    template: gtk-3.20/gtk.css.j2
+  - action: file
+    target: ~/.themes/FlatColor/gtk-3.20/gtk.css
+    template: gtk-3.20/gtk.css.j2
+  - action: file
+    target: ~/.themes/FlatColor/gtk-4.0/gtk.css
+    template: gtk-4.0/gtk.css.j2
+  - action: shell
+    command: gsettings set org.gnome.desktop.interface gtk-theme ''
+  - action: shell
+    command: gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor'

@@ -1,0 +1,69 @@
+/**********
+ * button *
+ **********/
+button {
+    padding: 4px 4px;
+    margin: 2px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: @button_normal_color;
+    border-radius: 5px;
+    background-color: @button_normal_color;
+    color: @button_inactive_fg_color;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 2.5px 4.5px @shadow;
+}
+
+button:focus {
+    color: @button_fg_color;
+    box-shadow: 0 2.5px 4.5px @shadow ,
+        inset 0 0 0 2px alpha(@selected_bg_color, 0.5);
+}
+
+button:active,
+button.toggle:checked {
+    color: @button_fg_color;
+    background-color: shade(@selected_bg_color, 0.83);
+    border-color: shade(@selected_bg_color, 0.83);
+    /*box-shadow: 0 1px 1px @shadow ,
+        inset 0 0 0 2px alpha(@button_fg_color, 0.25);*/
+    box-shadow: 0 1px 1px @shadow;
+}
+
+button:hover {
+    box-shadow: 0 2.5px 4.5px @shadow ,
+        inset 0 0 0 2px @selected_bg_color;
+    transition: box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
+    color: @button_fg_color;
+}
+
+button:active:hover,
+button.toggle:checked:hover {
+    box-shadow: 0 2.5px 4.5px @shadow ,
+        inset 0 0 0 2px alpha(@button_fg_color, 0.5);
+    transition: box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
+    color: @button_fg_color;
+}
+
+button:disabled {
+    background-color: mix(@button_normal_color, @color0, 0.40);
+    background-image: none;
+    /* color: mix(@button_inactive_fg_color, @color0, 0.10); */
+    color: @button_fg_color;
+}
+
+button:active:disabled {}
+
+GtkLinkButton.button,
+GtkLinkButton.button:focus,
+GtkLinkButton.button:hover,
+GtkLinkButton.button:active,
+GtkLinkButton.button:focus:active,
+GtkLinkButton.button:focus:hover {}
+
+button.radio:checked {
+    color: @button_fg_color;
+    background-color: shade(@selected_bg_color, 0.83);
+    border-color: shade(@selected_bg_color, 0.83);
+}
